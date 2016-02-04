@@ -38,21 +38,22 @@ class hyperop(object):
         vals = self._repeat(a,b)
         return reduce(lambda x,y: self.lower(y,x), vals)
             
-      
-#def hyperop(a,b,n):
-#    lower_func = hyperop(a,b
-A = hyperop(4)
 
-import numpy as np
-e = np.exp(1.0)
-X =  np.linspace(1,2,100)
-Y =  [A(float(x)**0.5,100) for x in X]
+if __name__ == "__main__":
+    #def hyperop(a,b,n):
+    #    lower_func = hyperop(a,b
+    A = hyperop(4)
 
-import seaborn as sns
-plt = sns.plt
-text= r"$\frac{x \uparrow \uparrow \infty}{x} $"
-plt.plot(X,Y/X,label=text)
-plt.legend(fontsize=40)
-plt.xlim(1,2)
-plt.show()
+    import numpy as np
+    e = np.exp(1.0)
+    X =  np.linspace(1,2,100)
+    Y =  [A(float(x)**0.5,100) for x in X]
+
+    import seaborn as sns
+    plt = sns.plt
+    text= r"$\frac{x \uparrow \uparrow \infty}{x} $"
+    plt.plot(X,Y/X,label=text)
+    plt.legend(fontsize=40)
+    plt.xlim(1,2)
+    plt.show()
 
