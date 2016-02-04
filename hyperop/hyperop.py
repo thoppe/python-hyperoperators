@@ -22,7 +22,6 @@ class hyperop(object):
         return object.__new__(cls)
     
     def __init__(self, n):
-        print "Building hyperop", n
         self.n = n
         self.lower = hyperop(n-1)
 
