@@ -16,4 +16,3 @@
 + Write `H0`, the [successor](https://en.wikipedia.org/wiki/Successor_function) operator.
 + Create as proper library, push into [pyPI](http://peterdowns.com/posts/first-time-with-pypi.html)
 + Finish documentation (add cool examples like sqrt(2) power + [Graham's number](https://en.wikipedia.org/wiki/Graham%27s_number)
-+ Raise error when non-integer values are used for H5

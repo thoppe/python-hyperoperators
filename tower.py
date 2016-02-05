@@ -7,7 +7,6 @@ def fixed(x):
     print x[0], H(x[0],100)
     return H(x[0], 100) /np.sqrt(x[0])
 
-
 import numpy as np
 e = np.exp(1.0)
 bounds = (e**(-e),e**(1/e))

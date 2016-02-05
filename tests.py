@@ -51,6 +51,24 @@ class KnownValues(unittest.TestCase):
         # Small fixed values, a=3
         assert(H(3,1) == 3)
         assert(H(3,2) == 7625597484987)
+
+
+class ValidRanges(unittest.TestCase):
+    def test_non_integral_H5(self):
+        H = hyperop(5)
+
+        with self.assertRaises(ValueError):
+            H(1.1,2)
+        with self.assertRaises(ValueError):
+            H(2,1.1)
+        
+    def test_non_integral_n(self):
+        with self.assertRaises(ValueError):
+            H = hyperop(1.2)
+
+    def test_non_negative_n(self):
+        with self.assertRaises(ValueError):
+            H = hyperop(-1)        
         
 if __name__ == '__main__':
     unittest.main()
