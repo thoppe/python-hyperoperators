@@ -1,8 +1,8 @@
 # Hyperoperators
 
-`hyperop` is a small pure python library for representing really, reall, ridiculously large numbers in python. It does so using [hyperoperations](https://en.wikipedia.org/wiki/Hyperoperation).
+`hyperop` is a small library for representing really, really, ridiculously large numbers in pure python. It does so using [hyperoperations](https://en.wikipedia.org/wiki/Hyperoperation).
 
-+ Hyperoperation 0, `H0` is the [successor](https://en.wikipedia.org/wiki/Successor_function), `H0(None, 4) = 5`
++ Hyperoperation 0, `H0` is the [successor function](https://en.wikipedia.org/wiki/Successor_function), `H0(None, 4) = 5`
 + `H1` is [addition](https://en.wikipedia.org/wiki/Addition), `H1(2,4) = 2 + (1+1+1+1) = 6`
 + `H2` is [multiplication](https://en.wikipedia.org/wiki/Multiplication) (repeated addition), `H2(2,4) = 2+2+2+2 = 8`
 + `H3` is [exponentiation](https://en.wikipedia.org/wiki/Exponentiation) (repeated multiplication), `H3(2,4) = 2*2*2*2 = 16`
@@ -17,6 +17,7 @@ Fundamentally, hyperop works recursively by applying a [fold-right](https://en.w
 
 ### Examples
 
+``` python
     from hyperop import hyperop
 
     H1 = hyperop(1)
@@ -31,7 +32,7 @@ Fundamentally, hyperop works recursively by applying a [fold-right](https://en.w
     print H3(2,7)
     # >> ....     H3 = hyperop(1)
     print H3(2,3), H3(3,2), H3(5,4)
-
+```
   
 Approximate infinite tetration. Show that sqrt(2)^sqrt(2)^... an an infinite amount of times is 2.
 
