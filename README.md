@@ -1,7 +1,8 @@
 # Hyperoperators
 
 [![Build Status](https://travis-ci.org/thoppe/python-hyperoperators.svg?branch=master)](https://travis-ci.org/thoppe/python-hyperoperators)
-
+[![Coverage Status](https://coveralls.io/repos/github/thoppe/python-hyperoperators/badge.svg?branch=master)](https://coveralls.io/github/thoppe/python-hyperoperators?branch=master)
+  
 `hyperop` is a small library for representing really, really, ridiculously large numbers in pure python. It does so using [hyperoperations](https://en.wikipedia.org/wiki/Hyperoperation).
 
 + Hyperoperation 0, `H0` is the [successor function](https://en.wikipedia.org/wiki/Successor_function), `H0(None, 4) = 5`

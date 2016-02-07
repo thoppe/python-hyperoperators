@@ -22,20 +22,27 @@ class base_hyperop3(object):
 
 class hyperop(object):
     
-    def __new__(cls,n):
+    def __new__(cls,n,primitive=False):
         if n<0 or int(n) != n:
             raise ValueError(_errmsg_invalid_hyperop_n.format(n))
         
         if n==0:  return base_hyperop0()
-        if n==1:  return base_hyperop1()
-        if n==2:  return base_hyperop2()
-        if n==3:  return base_hyperop3()
+
+        if not primitive:
+            if n==1:  return base_hyperop1()
+            if n==2:  return base_hyperop2()
+            if n==3:  return base_hyperop3()
+            
         return object.__new__(cls)
     
-    def __init__(self, n):
+    def __init__(self, n, primitive=False):
         '''
         Create a hyperoperator of order n. 
+
         n must be a non-negative integer.
+        If primitive is True, evaluate everything from the successor 
+        function, otherwise hardcode in base cases all 
+        the way to exponentiation.
 
         Hyperoperation 0, H0 is the successor function, H0(None, 4) = 5
         H1 is addition, H1(2,4) = 2 + (1+1+1+1) = 6
@@ -61,7 +68,6 @@ class hyperop(object):
 
         # For successor to work properly the base case
         # needs to be incremented by one
-        
         if self.n == 1:
             yield a
 

@@ -1,7 +1,29 @@
 import unittest, itertools, math
 from hyperop import hyperop
 
-testing_values = range(1,20)
+testing_values = range(1,15)
+
+#def generic_evaulation(fA, fB):
+#    for x,y in itertools.product(testing_values,repeat=2):
+#        assert( fA(x,y) == fB(x,y) )
+
+class PrimitiveSmallValues(unittest.TestCase):
+
+    def test_primitive_H1(self):
+        H = hyperop(1,primitive=True)
+        
+        for a,b in itertools.product(testing_values,repeat=2):
+            assert( H(a,b) == a+b )
+
+    def test_primitive_H2(self):
+        H = hyperop(2,primitive=True)
+        for a,b in itertools.product(testing_values,repeat=2):
+            assert( H(a,b) == a*b )
+
+    def test_primitive_H3(self):
+        H = hyperop(3,primitive=True)
+        for a,b in itertools.product(testing_values,repeat=2):
+            assert( H(a,b) == a**b )
 
 class SmallValues(unittest.TestCase):
 
