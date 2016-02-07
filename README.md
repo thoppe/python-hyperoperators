@@ -15,6 +15,11 @@ Fundamentally, hyperop works recursively by applying a [fold-right](https://en.w
   
     H[n](x,y) = reduce(lambda x,y: H[n-1](y,x), [a,]*b)
 
+
+### Installation
+
+    pip install git+https://github.com/thoppe/python-hyperoperators
+
 ### Examples
 
 ``` python
@@ -84,5 +89,5 @@ Since tetration is not defined for non-integral heights, the domain of pentation
   + [x] Add [Graham's number](https://en.wikipedia.org/wiki/Graham%27s_number) example
   + [x] Add sqrt(2) tetration example.
   + [x] Add complex plane plot example.
-  + [ ] Create as proper library, push into [pyPI](http://peterdowns.com/posts/first-time-with-pypi.html)
-  + [ ] Finish documentation.
+  + [x] Create as proper library and test install
+  + [ ] push into [pyPI](http://peterdowns.com/posts/first-time-with-pypi.html)
