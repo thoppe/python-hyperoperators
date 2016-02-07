@@ -11,11 +11,44 @@
 + Hyperoperation n is repeated Hyperoperation (n-1)
 
 
-Fundamentally, hyperop works recursively by apply a [fold-right](https://en.wikipedia.org/wiki/Fold_(higher-order_function)) operation:
+Fundamentally, hyperop works recursively by applying a [fold-right](https://en.wikipedia.org/wiki/Fold_(higher-order_function)) operation:
   
     H[n](x,y) = reduce(lambda x,y: H[n-1](y,x), [a,]*b)
 
+### Examples
+
+    from hyperop import hyperop
+
+    H1 = hyperop(1)
+    print H1(2,3), H1(3,2), H1(5,4)
+    # >> 5, 5, 8
+
+    H3 = hyperop(3)
+    print H3(2,3), H3(3,2), H3(5,4)
+    # >> 8, 9, 243
+
+    H4 = hyperop(4)   
+    print H3(2,7)
+    # >> ....     H3 = hyperop(1)
+    print H3(2,3), H3(3,2), H3(5,4)
+
   
+Approximate infinite tetration. Show that sqrt(2)^sqrt(2)^... an an infinite amount of times is 2.
+
+    H4 = hyperop(4)
+    print H4(2**0.5, 200)
+    # >> .... 2.0
+  
+
+Calculate the incomprhensibly large, but finite [Graham's number](https://en.wikipedia.org/wiki/Graham%27s_number):
+
+    def GrahamsNumber():
+        g = 6
+        for n in range(1,64+1):
+            g = hyperop(g)(3,3)
+        return g
+
+ 
 ### Caveats
   
 Higher order hyperoperations (from tetration and above) are _not_ associative, thus the tetration `H4(2,4) = 2^(2^(2^(2))) = 65536` and not `H4(2,4) != 2^(2*2*2) = 256`.
@@ -26,6 +59,7 @@ Since tetration is not defined for non-integral heights, the domain of pentation
 ## TO DO:
 
   + [x] Write `H0`, the [successor](https://en.wikipedia.org/wiki/Successor_function) operator.
+  + [x] Add [Graham's number](https://en.wikipedia.org/wiki/Graham%27s_number) example
   + [ ] Iterate over expressions lazily.
   + [ ] Create as proper library, push into [pyPI](http://peterdowns.com/posts/first-time-with-pypi.html)
-  + [ ] Finish documentation (add cool examples like sqrt(2) power + [Graham's number](https://en.wikipedia.org/wiki/Graham%27s_number)
+  + [ ] Finish documentation (add cool examples like sqrt(2) power

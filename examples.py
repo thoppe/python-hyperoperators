@@ -1,24 +1,27 @@
 from hyperop import hyperop
 
-'''
-H = hyperop(3)
+def GrahamsNumber():
+    g = 6
+    for n in range(1,64+1):
+        g = hyperop(g)(3,3)
+    return g
 
-for x in H.iterate(3,3):
-    print x
 
-print H(3,3)
-exit()
-'''
+# Might want to grab some coffee before running this
+# print GrahamsNumber()
+
 
 import numpy as np
+H = hyperop(4)
 e = np.exp(1.0)
-X =  np.linspace(1,2,100)
-Y =  [A(float(x)**0.5,100) for x in X]
+X =  np.linspace(e**(-e),e**(1/e),200)
+Y =  [H(x,100) for x in X]
 
 import seaborn as sns
 plt = sns.plt
-text= r"$\frac{x \uparrow \uparrow \infty}{x} $"
-plt.plot(X,Y/X,label=text)
+text= r"$\frac{x \uparrow \uparrow \infty}{x^2} $"
+plt.plot(X,Y/X**2,label=text)
 plt.legend(fontsize=40)
-plt.xlim(1,2)
+plt.ylim(0.8,1.5)
+plt.xlim(0.5, 1.6)
 plt.show()
