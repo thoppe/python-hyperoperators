@@ -10,6 +10,12 @@
 + ...
 + Hyperoperation n is repeated Hyperoperation (n-1)
 
+
+Fundamentally, hyperop works recursively by apply a [fold-right](https://en.wikipedia.org/wiki/Fold_(higher-order_function)) operation:
+  
+    H[n](x,y) = reduce(lambda x,y: H[n-1](y,x), [a,]*b)
+
+  
 ### Caveats
   
 Higher order hyperoperations (from tetration and above) are _not_ associative, thus the tetration `H4(2,4) = 2^(2^(2^(2))) = 65536` and not `H4(2,4) != 2^(2*2*2) = 256`.
