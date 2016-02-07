@@ -18,4 +18,5 @@ setup(
     keywords = "math hyperoperators uparrow large-numbers",
     packages=['hyperop'],
     long_description=read('README.md'),
+    test_suite="tests",
 )
