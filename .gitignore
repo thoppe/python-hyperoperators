@@ -4,3 +4,7 @@
 
 # Unix temp files
 *~
+
+# Build files
+.coverage
+*.egg-info/
