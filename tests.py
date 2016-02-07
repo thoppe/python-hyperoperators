@@ -4,6 +4,11 @@ from hyperop import hyperop
 testing_values = range(1,20)
 
 class SmallValues(unittest.TestCase):
+
+    def test_H0(self):
+        H = hyperop(0)
+        for a,b in itertools.product(testing_values,repeat=2):
+            assert( H(a,b) == 1+b )
     
     def test_H1(self):
         H = hyperop(1)
@@ -19,7 +24,6 @@ class SmallValues(unittest.TestCase):
         H = hyperop(3)
         for a,b in itertools.product(testing_values,repeat=2):
             assert( H(a,b) == a**b )
-
 
 class KnownValues(unittest.TestCase):
     def test_H4(self):
@@ -51,7 +55,6 @@ class KnownValues(unittest.TestCase):
         # Small fixed values, a=3
         assert(H(3,1) == 3)
         assert(H(3,2) == 7625597484987)
-
 
 class ValidRanges(unittest.TestCase):
     def test_non_integral_H5(self):

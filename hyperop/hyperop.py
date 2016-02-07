@@ -3,7 +3,13 @@ import itertools
 _errmsg_non_integral = "{} is not integral, required for hyperop n>4"
 _errmsg_invalid_hyperop_n = "hyperoperators must be integers n>=0, created with n={}"
 
-# For convenience  & speed define the lower hyperops
+# Define the base of the recursion, H0 the successor function
+# essentially for foldr to work, a (not b) must be ignored.
+class base_hyperop0(object):
+    def __call__(self,a,b):
+        return 1 + b
+
+# For convenience & speed define the lower hyperops
 class base_hyperop1(object):
     def __call__(self,a,b):
         return a + b
@@ -21,7 +27,8 @@ class hyperop(object):
     def __new__(cls,n):
         if n<0 or int(n) != n:
             raise ValueError(_errmsg_invalid_hyperop_n.format(n))
-
+        
+        if n==0:  return base_hyperop0()
         if n==1:  return base_hyperop1()
         if n==2:  return base_hyperop2()
         if n==3:  return base_hyperop3()
@@ -37,6 +44,11 @@ class hyperop(object):
         xrange can't handle large nums see,
         http://stackoverflow.com/a/22114284/249341
         '''
+
+        # For successor to work properly the base case needs to be inc by one
+        if self.n == 1:
+            yield a
+        
         for i in itertools.count(1):
             yield a
             if i==b: break
@@ -44,7 +56,7 @@ class hyperop(object):
     def __call__(self,a,b):
         '''
         Apply foldr
-        '''
+        '''       
         self._check_value(a,b)
         return reduce(lambda x,y: self.lower(y,x), self._repeat(a,b))
 

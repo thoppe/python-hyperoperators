@@ -1,8 +1,5 @@
 from hyperop import hyperop
 
-A = hyperop(4)
-print A(2,3)
-
 import numpy as np
 e = np.exp(1.0)
 X =  np.linspace(1,2,100)
