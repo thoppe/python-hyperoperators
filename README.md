@@ -28,10 +28,13 @@ H3 = hyperop(3)
 print H3(2,3), H3(3,2), H3(5,4)
 # >> 8, 9, 243
 
-H4 = hyperop(4)   
-print H3(2,7)
-# >> .... H3 = hyperop(1)
-print H3(2,3), H3(3,2), H3(5,4)
+from math import log
+H = hyperop(4)
+print H(2,5)
+>>> 200352993040684646497....45587895905719156736
+
+print log(log(log(log(H(2,5),2.0),2.0),2.0),2.0) == 2
+>>> True  
 ```
   
 Approximate infinite tetration. Show that sqrt(2)^sqrt(2)^... an an infinite amount of times is 2.
@@ -39,7 +42,7 @@ Approximate infinite tetration. Show that sqrt(2)^sqrt(2)^... an an infinite amo
 ``` python
 H4 = hyperop(4)
 print H4(2**0.5, 200)
-# >> .... 2.0
+# >> 2.0
 ```
   
 
