@@ -1,6 +1,6 @@
 # Hyperoperators
 
-`hyperop` is a small pure python library for representing ridiculously large numbers in python. It does so using [hyperoperations](https://en.wikipedia.org/wiki/Hyperoperation).
+`hyperop` is a small pure python library for representing really, reall, ridiculously large numbers in python. It does so using [hyperoperations](https://en.wikipedia.org/wiki/Hyperoperation).
 
 + Hyperoperation 0, `H0` is the [successor](https://en.wikipedia.org/wiki/Successor_function), `H0(None, 4) = 5`
 + `H1` is [addition](https://en.wikipedia.org/wiki/Addition), `H1(2,4) = 2 + (1+1+1+1) = 6`
@@ -64,9 +64,9 @@ Plot the phase angle on the complex plane over tetrating four times `H4(z,4)`
  
 ### Caveats
   
-Higher order hyperoperations (from tetration and above) are _not_ associative, thus the tetration `H4(2,4) = 2^(2^(2^(2))) = 65536` and not `H4(2,4) != 2^(2*2*2) = 256`.
+Higher order hyperoperations (from tetration and above) are _not_ associative, thus the tetration `H4(2,4) = 2^(2^(2^(2))) = 65536` is not `H4(2,4) != 2^(2*2*2) = 256`.
 
-Since tetration is not defined for non-integral heights, the domain of pentation (`H5`) and above is restricted to non-negative integer values.
+Since tetration is not defined for non-integral heights, the domain of pentation `H5` and above is restricted to non-negative integer values.
 
 
 ## TO DO:
