@@ -18,47 +18,52 @@ Fundamentally, hyperop works recursively by applying a [fold-right](https://en.w
 ### Examples
 
 ``` python
-    from hyperop import hyperop
+from hyperop import hyperop
 
-    H1 = hyperop(1)
-    print H1(2,3), H1(3,2), H1(5,4)
-    # >> 5, 5, 8
+H1 = hyperop(1)
+print H1(2,3), H1(3,2), H1(5,4)
+# >> 5, 5, 8
 
-    H3 = hyperop(3)
-    print H3(2,3), H3(3,2), H3(5,4)
-    # >> 8, 9, 243
+H3 = hyperop(3)
+print H3(2,3), H3(3,2), H3(5,4)
+# >> 8, 9, 243
 
-    H4 = hyperop(4)   
-    print H3(2,7)
-    # >> ....     H3 = hyperop(1)
-    print H3(2,3), H3(3,2), H3(5,4)
+H4 = hyperop(4)   
+print H3(2,7)
+# >> .... H3 = hyperop(1)
+print H3(2,3), H3(3,2), H3(5,4)
 ```
   
 Approximate infinite tetration. Show that sqrt(2)^sqrt(2)^... an an infinite amount of times is 2.
 
-    H4 = hyperop(4)
-    print H4(2**0.5, 200)
-    # >> .... 2.0
+``` python
+H4 = hyperop(4)
+print H4(2**0.5, 200)
+# >> .... 2.0
+```
   
 
 Calculate the incomprehensibly large, but finite [Graham's number](https://en.wikipedia.org/wiki/Graham%27s_number):
 
-    def GrahamsNumber():
-        # This may take awhile...
-        g = 6
-        for n in range(1,64+1):
-            g = hyperop(g)(3,3)
-        return g
-
+``` python
+def GrahamsNumber():
+    # This may take awhile...
+    g = 6
+    for n in range(1,64+1):
+        g = hyperop(g)(3,3)
+    return g
+```
+  
 Plot the phase angle on the complex plane over tetrating four times `H4(z,4)`
- 
-    from hyperop import hyperop
-    import mpmath
 
-    H = hyperop(4)
-    f = lambda z: H(z,4)
-    mpmath.cplot(f, verbose=True, points=100000)
+``` python
+from hyperop import hyperop
+import mpmath
 
+H = hyperop(4)
+f = lambda z: H(z,4)
+mpmath.cplot(f, verbose=True, points=100000)
+```
 
 ![Complex tetration plot](figures/tetration_example.png)
 
