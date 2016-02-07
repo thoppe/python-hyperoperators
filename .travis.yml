@@ -5,9 +5,7 @@ python:
   
 install:
  - pip install coveralls
-
-# change from 'script: python setup.py test' to this
-coverage run --source hyperop setup.py test
+ - coverage run --source hyperop setup.py test
 
 after_success:
-    coveralls
+ - coveralls
