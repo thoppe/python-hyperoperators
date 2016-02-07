@@ -10,10 +10,15 @@
 + ...
 + Hyperoperation n is repeated Hyperoperation (n-1)
 
+### Caveats
+  
+Higher order hyperoperations (from tetration and above) are _not_ associative, thus the tetration `H4(2,4) = 2^(2^(2^(2))) = 65536` and not `H4(2,4) != 2^(2*2*2) = 256`.
+
+Since tetration is not defined for non-integral heights, the domain of pentation (`H5`) and above is restricted to non-negative integer values.
+
 
 ## TO DO:
 
 + [x] Write `H0`, the [successor](https://en.wikipedia.org/wiki/Successor_function) operator.
-+ [ ] Add `FLAG` to use intermediate speedup operators or not.
 + [ ] Create as proper library, push into [pyPI](http://peterdowns.com/posts/first-time-with-pypi.html)
 + [ ] Finish documentation (add cool examples like sqrt(2) power + [Graham's number](https://en.wikipedia.org/wiki/Graham%27s_number)
