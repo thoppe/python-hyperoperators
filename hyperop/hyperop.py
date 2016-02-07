@@ -1,5 +1,3 @@
-import itertools
-
 _errmsg_non_integral = "{} is not integral, required for hyperop n>4"
 _errmsg_invalid_hyperop_n = "hyperoperators must be integers n>=0, created with n={}"
 
@@ -48,10 +46,12 @@ class hyperop(object):
         # For successor to work properly the base case needs to be inc by one
         if self.n == 1:
             yield a
-        
-        for i in itertools.count(1):
+
+        i = 1
+        while True:
             yield a
             if i==b: break
+            i += 1
    
     def __call__(self,a,b):
         '''

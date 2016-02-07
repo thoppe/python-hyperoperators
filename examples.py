@@ -1,5 +1,15 @@
 from hyperop import hyperop
 
+'''
+H = hyperop(3)
+
+for x in H.iterate(3,3):
+    print x
+
+print H(3,3)
+exit()
+'''
+
 import numpy as np
 e = np.exp(1.0)
 X =  np.linspace(1,2,100)
