@@ -33,6 +33,22 @@ class hyperop(object):
         return object.__new__(cls)
     
     def __init__(self, n):
+        '''
+        Create a hyperoperator of order n. 
+        n must be a non-negative integer.
+
+        Hyperoperation 0, H0 is the successor function, H0(None, 4) = 5
+        H1 is addition, H1(2,4) = 2 + (1+1+1+1) = 6
+        H2 is multiplication (repeated addition), H2(2,4) = 2+2+2+2 = 8
+        H3 is exponentiation (repeated multiplication), H3(2,4) = 2*2*2*2 = 16
+        H4 is tetration H4(2,4) = 2^(2^(2^(2))) = 65536
+        Hyperoperation n is repeated Hyperoperation (n-1)
+
+        Evaluate the hyperoperator by calling it:
+        H3 = hyperop(3)
+        print H3(2,5)
+        >> 32
+        '''
         self.n = n
         self.lower = hyperop(n-1)
 
@@ -43,7 +59,9 @@ class hyperop(object):
         http://stackoverflow.com/a/22114284/249341
         '''
 
-        # For successor to work properly the base case needs to be inc by one
+        # For successor to work properly the base case
+        # needs to be incremented by one
+        
         if self.n == 1:
             yield a
 
@@ -55,9 +73,11 @@ class hyperop(object):
    
     def __call__(self,a,b):
         '''
-        Apply foldr
+        Evaluate and return expression H[n](a,b).
+        (a,b) must be non-negative for n>4.
         '''       
         self._check_value(a,b)
+        # Apply foldr
         return reduce(lambda x,y: self.lower(y,x), self._repeat(a,b))
 
     def _check_value(self,a,b):
