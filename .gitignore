@@ -1,5 +1,6 @@
 # Python cruft
 *.pyc
+*.bak
 
 # Unix temp files
 *~
