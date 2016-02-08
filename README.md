@@ -94,5 +94,6 @@ Since tetration is not defined for non-integral heights, the domain of pentation
   + [x] Add complex plane plot example.
   + [x] Create as proper library and test install.
   + [x] CI integration with badge.
-  + [ ] Add unit tests and show test coverage.
+  + [x] Add unit tests and show test coverage.
+  + [x] python3 support
   + [ ] push into [pyPI](http://peterdowns.com/posts/first-time-with-pypi.html)
