@@ -8,3 +8,4 @@
 # Build files
 .coverage
 *.egg-info/
+.tox/

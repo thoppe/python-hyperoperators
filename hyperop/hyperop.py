@@ -7,7 +7,7 @@ _errmsg_invalid_hyperop_n = "hyperoperators must be integers n>=0, created with 
 # essentially for foldr to work, a (not b) must be ignored.
 class base_hyperop0(object):
     def __call__(self,a,b):
-        return 1 + b
+        return 1 + b 
 
 # For convenience & speed define the lower hyperops
 class base_hyperop1(object):
