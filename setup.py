@@ -13,20 +13,21 @@ long_desc = '''
 + Hyperoperation n is repeated Hyperoperation (n-1)
 
 Fundamentally, hyperop works recursively by applying a [fold-right](https://en.wikipedia.org/wiki/Fold_(higher-order_function)) operation:
-  
+
     H[n](x,y) = reduce(lambda x,y: H[n-1](y,x), [a,]*b)
 '''
 
 setup(
-    name = "hyperop",
-    version = "1.0",
-    author = "Travis Hoppe",
-    author_email = "travis.hoppe+hyperop@gmail.com",
-    description = ("Hyperoperators (succession, addition, multiplication, exponentiation, tetration and more) in python."),
+    name="hyperop",
+    version="1.0",
+    author="Travis Hoppe",
+    author_email="travis.hoppe+hyperop@gmail.com",
+    description=(
+        "Hyperoperators (succession, addition, multiplication, exponentiation, tetration and more) in python."),
     long_description = long_desc,
     license = "MIT",
     keywords = "math hyperoperators uparrow large-numbers",
     packages=['hyperop'],
-    #long_description=read('README.md'),
+    # long_description=read('README.md'),
     test_suite="tests",
 )
