@@ -22,6 +22,10 @@ Fundamentally, hyperop works recursively by applying a [fold-right](https://en.w
 
 ### Installation
 
+    pip install hyperop
+
+If you'd like to install the latest version user:
+
     pip install git+https://github.com/thoppe/python-hyperoperators
 
 ### Examples
@@ -82,22 +86,9 @@ mpmath.cplot(f, verbose=True, points=100000)
  
 ### Caveats
   
-Higher order hyperoperations (from tetration and above) are _not_ associative, thus the tetration `H4(2,4) = 2^(2^(2^(2))) = 65536` is not `H4(2,4) != 2^(2*2*2) = 256`.
+Higher order hyperoperations (from tetration and above) are _not_ associative, thus tetration `H4(2,4) = 2^(2^(2^(2))) = 65536` is not `H4(2,4) != 2^(2*2*2) = 256`.
 
 Since tetration is not defined for non-integral heights, the domain of pentation `H5` and above is restricted to non-negative integer values.
-
-
-## TO DO:
-
-  + [x] Write `H0`, the [successor](https://en.wikipedia.org/wiki/Successor_function) operator.
-  + [x] Add [Graham's number](https://en.wikipedia.org/wiki/Graham%27s_number) example
-  + [x] Add sqrt(2) tetration example.
-  + [x] Add complex plane plot example.
-  + [x] Create as proper library and test install.
-  + [x] CI integration with badge.
-  + [x] Add unit tests and show test coverage.
-  + [x] python3 support
-  + [x] push into [pyPI](http://peterdowns.com/posts/first-time-with-pypi.html)
 
 # License
 
