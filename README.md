@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/thoppe/python-hyperoperators.svg?branch=master)](https://travis-ci.org/thoppe/python-hyperoperators)
 [![Coverage Status](https://coveralls.io/repos/github/thoppe/python-hyperoperators/badge.svg?branch=master)](https://coveralls.io/github/thoppe/python-hyperoperators?branch=master)
+[![PyPI version](https://badge.fury.io/py/hyperop.svg)](https://badge.fury.io/py/hyperop)
   
 `hyperop` is a small library for representing really, really, ridiculously large numbers in pure python. It does so using [hyperoperations](https://en.wikipedia.org/wiki/Hyperoperation).
 
@@ -96,7 +97,7 @@ Since tetration is not defined for non-integral heights, the domain of pentation
   + [x] CI integration with badge.
   + [x] Add unit tests and show test coverage.
   + [x] python3 support
-  + [ ] push into [pyPI](http://peterdowns.com/posts/first-time-with-pypi.html)
+  + [x] push into [pyPI](http://peterdowns.com/posts/first-time-with-pypi.html)
 
 # License
 
