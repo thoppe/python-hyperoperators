@@ -10,3 +10,6 @@
 *.egg-info/
 .tox/
 dist/
+
+# md2reveal
+.render_cache/
