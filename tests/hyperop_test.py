@@ -9,7 +9,7 @@ testing_values = range(1, 15)
 
 def check_range(fA, fB):
     for x, y in itertools.product(testing_values, repeat=2):
-        assert(fA(x, y) == fB(x, y))
+        assert fA(x, y) == fB(x, y)
 
 
 class PrimitiveSmallValues(unittest.TestCase):
@@ -27,7 +27,7 @@ class PrimitiveSmallValues(unittest.TestCase):
 class SmallValues(unittest.TestCase):
 
     def test_H0(self):
-        def successor(a, b):
+        def successor(_, b):
             return 1 + b
         check_range(hyperop(0), successor)
 
@@ -47,31 +47,31 @@ class KnownValues(unittest.TestCase):
         H = hyperop(4)
 
         # Small fixed values, a=2
-        assert(H(2, 1) == 2)
-        assert(H(2, 2) == 4)
-        assert(H(2, 3) == 16)
-        assert(H(2, 4) == 65536)
+        assert H(2, 1) == 2
+        assert H(2, 2) == 4
+        assert H(2, 3) == 16
+        assert H(2, 4) == 65536
 
         # Small fixed values, a=3
-        assert(H(3, 1) == 3)
-        assert(H(3, 2) == 27)
-        assert(H(3, 3) == 7625597484987)
+        assert H(3, 1) == 3
+        assert H(3, 2) == 27
+        assert H(3, 3) == 7625597484987
 
         # Log of large value should be related to smaller one
         a2_5 = round(math.log(H(2, 5), 2))
-        assert(a2_5 == H(2, 4))
+        assert a2_5 == H(2, 4)
 
     def test_H5(self):
         H = hyperop(5)
 
         # Small fixed values, a=2
-        assert(H(2, 1) == 2)
-        assert(H(2, 2) == 4)
-        assert(H(2, 3) == 65536)
+        assert H(2, 1) == 2
+        assert H(2, 2) == 4
+        assert H(2, 3) == 65536
 
         # Small fixed values, a=3
-        assert(H(3, 1) == 3)
-        assert(H(3, 2) == 7625597484987)
+        assert H(3, 1) == 3
+        assert H(3, 2) == 7625597484987
 
 
 class ValidRanges(unittest.TestCase):

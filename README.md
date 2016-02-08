@@ -45,7 +45,7 @@ print log(log(log(log(H(2,5),2.0),2.0),2.0),2.0) == 2
 >>> True  
 ```
   
-Approximate infinite tetration. Show that sqrt(2)^sqrt(2)^... an an infinite amount of times is 2.
+Approximate infinite tetration. Show that sqrt(2)^sqrt(2)^... where the tower continues an infinite amount of times is 2.
 
 ``` python
 H4 = hyperop(4)
