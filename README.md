@@ -24,7 +24,7 @@ Fundamentally, hyperop works recursively by applying a [fold-right](https://en.w
 
     pip install hyperop
 
-If you'd like to install the latest version user:
+To install the latest version use:
 
     pip install git+https://github.com/thoppe/python-hyperoperators
 
