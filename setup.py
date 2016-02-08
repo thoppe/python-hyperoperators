@@ -23,9 +23,9 @@ setup(
     author="Travis Hoppe",
     author_email="travis.hoppe+hyperop@gmail.com",
     description=(
-        "Hyperoperators (succession, addition, multiplication, exponentiation, tetration and more) in python."),
+        "Hyperoperators (succession, addition, multiplication, exponentiation, tetration and higher) in python."),
     long_description = long_desc,
-    license = "MIT",
+    license = "Creative Commons Attribution-ShareAlike 4.0 International License",
     keywords = "math hyperoperators uparrow large-numbers",
     packages=['hyperop'],
     # long_description=read('README.md'),

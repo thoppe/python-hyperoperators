@@ -97,3 +97,7 @@ Since tetration is not defined for non-integral heights, the domain of pentation
   + [x] Add unit tests and show test coverage.
   + [x] python3 support
   + [ ] push into [pyPI](http://peterdowns.com/posts/first-time-with-pypi.html)
+
+# License
+
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
