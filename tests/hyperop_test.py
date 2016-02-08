@@ -86,11 +86,11 @@ class ValidRanges(unittest.TestCase):
 
     def test_non_integral_n(self):
         with self.assertRaises(ValueError):
-            H = hyperop(1.2)
+            hyperop(1.2)
 
     def test_non_negative_n(self):
         with self.assertRaises(ValueError):
-            H = hyperop(-1)
+            hyperop(-1)
 
 if __name__ == '__main__':
     unittest.main()
