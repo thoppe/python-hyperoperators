@@ -88,7 +88,7 @@ mpmath.cplot(f, verbose=True, points=100000)
   
 Higher order hyperoperations (from tetration and above) are _not_ associative, thus tetration `H4(2,4) = 2^(2^(2^(2))) = 65536` is not `H4(2,4) != 2^(2*2*2) = 256`.
 
-Since tetration is not defined for non-integral heights, the domain of pentation `H5` and above is restricted to non-negative integer values.
+Since tetration is not defined for non-integral heights, the second argument of tetration and both arguments of pentation and above are restricted to non-negative integer values.
 
 ### Talks & Press
 
