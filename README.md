@@ -92,9 +92,9 @@ Since tetration is not defined for non-integral heights, the domain of pentation
 
 ### Talks & Press
 
-This library was presented at DC's Hack && Tell:
+This library was first presented at DC's Hack && Tell (Feb. 2016).
 
-[http://thoppe.github.io/python-hyperoperators/HnT_pres.html#/](http://thoppe.github.io/python-hyperoperators/HnT_pres.html#/)
+[http://thoppe.github.io/python-hyperoperators/HnT_pres.html](http://thoppe.github.io/python-hyperoperators/HnT_pres.html#/)
 
 # License
 
