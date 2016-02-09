@@ -153,7 +153,7 @@ class bounded_hyperop(hyperop):
         vals = self._repeat(a, b)
 
         try:
-            x = self.lower(vals.next(), vals.next())
+            x = self.lower(next(vals), next(vals))
         except StopIteration:
             x = a
 
