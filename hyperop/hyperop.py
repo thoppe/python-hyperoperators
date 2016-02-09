@@ -107,15 +107,19 @@ class hyperop(object):
 
     def _check_value(self, a, b):
         '''
-        H5 and greater can't handle non-integer values,
+        H[n>5](a,b) both a,b must be integers.
+        H[n=4](a,b) b must be and integer.
         check input values and raise Exception if they don't pass.
         '''
 
-        if self.n < 5:
+        if self.n <= 3:
+            return True
+
+        if b != int(b):
+            raise ValueError(_errmsg_non_integral.format(b))
+
+        if self.n <= 4:
             return True
 
         if a != int(a):
             raise ValueError(_errmsg_non_integral.format(a))
-
-        if b != int(b):
-            raise ValueError(_errmsg_non_integral.format(b))

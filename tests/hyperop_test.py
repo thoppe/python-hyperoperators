@@ -76,6 +76,12 @@ class KnownValues(unittest.TestCase):
 
 class ValidRanges(unittest.TestCase):
 
+    def test_non_integral_H4(self):
+        H = hyperop(4)
+
+        with self.assertRaises(ValueError):
+            H(2, 0.5)
+
     def test_non_integral_H5(self):
         H = hyperop(5)
 
