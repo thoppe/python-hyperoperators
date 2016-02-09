@@ -109,24 +109,20 @@ class BoundedHyperop(unittest.TestCase):
         H = bounded_hyperop(4, bound=1000)
         assert H(5.0, 5) == H.infinity
 
-    def test_H1(self):
-        check_range(bounded_hyperop(1), operator.add)
-
-    def test_H2(self):
-        check_range(bounded_hyperop(2), operator.mul)
-
-    def test_H3(self):
-        check_range(bounded_hyperop(3), operator.pow)
-
     def test_coorespondance(self):
+        '''
+        Check if the bounded hyperop matches with the regular
+        version for small values of a,b.
+        '''
 
         bound = hyperop(4)(3, 3)
 
         vals = range(1, 4)
         for N in range(0, 5):
+            H = hyperop(N, primitive=True)
+            Hb = bounded_hyperop(N, bound=bound, primitive=True)
+
             for a, b in itertools.product(vals, repeat=2):
-                H = hyperop(N, primitive=True)
-                Hb = bounded_hyperop(N, bound=bound, primitive=True)
                 assert(H(a, b) == Hb(a, b))
 
 if __name__ == '__main__':
