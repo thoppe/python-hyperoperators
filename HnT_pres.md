@@ -1,5 +1,5 @@
 # `hyperop`
-_python library for representing really, really, ridiculously large numbers_
+_python library for representing really, really, ridiculously large numbers_[.](http://thoppe.github.io/python-hyperoperators/HnT_pres.html#/)
 ----------
 !(figures/zoolander.gif)  <<height:300px>>
 !(figures/zoolander2.gif) <<height:300px>>
@@ -88,7 +88,7 @@ Functional programming in python, fold-right
 _`hyperop` is almost surely the first python library to offer support for it._
 _Was the largest computable finite number ever used in a proof._
 
-!(figures/out.gif) <<height:400px; transparent>>
+!(figures/huge.gif) <<height:400px; transparent>>
 _it's kinda big_
 ====*
 
