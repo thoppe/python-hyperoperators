@@ -108,7 +108,7 @@ class BoundedHyperop(unittest.TestCase):
     def test_complex_bounds(self):
         H = bounded_hyperop(4, bound=1000)
         assert H(5.0, 5) == H.infinity
-        
+
     def test_H1(self):
         check_range(bounded_hyperop(1), operator.add)
 
@@ -119,15 +119,15 @@ class BoundedHyperop(unittest.TestCase):
         check_range(bounded_hyperop(3), operator.pow)
 
     def test_coorespondance(self):
-        
-        bound = hyperop(4)(3,3)
 
-        vals = range(1,4)
+        bound = hyperop(4)(3, 3)
+
+        vals = range(1, 4)
         for N in range(0, 5):
-            for a,b in itertools.product(vals, repeat=2):
-                H  = hyperop(N, primitive=True)
+            for a, b in itertools.product(vals, repeat=2):
+                H = hyperop(N, primitive=True)
                 Hb = bounded_hyperop(N, bound=bound, primitive=True)
-                assert( H(a,b) == Hb(a,b) )
+                assert(H(a, b) == Hb(a, b))
 
 if __name__ == '__main__':
     unittest.main()

@@ -139,7 +139,6 @@ class bounded_hyperop(hyperop):
         self.n = n
         self.lower = bounded_hyperop(n - 1)
         self.bound = bound
-        
 
     def __call__(self, a, b):
         '''
@@ -151,20 +150,20 @@ class bounded_hyperop(hyperop):
         '''
         self._check_value(a, b)
 
-        vals = self._repeat(a,b)
+        vals = self._repeat(a, b)
 
         try:
             x = self.lower(vals.next(), vals.next())
         except StopIteration:
             x = a
-        
-        if abs(x)>self.bound:
+
+        if abs(x) > self.bound:
             return self.infinity
-        
+
         for y in vals:
             x = self.lower(y, x)
-            
-            if abs(x)>self.bound:
+
+            if abs(x) > self.bound:
                 return self.infinity
 
         return x
