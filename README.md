@@ -90,6 +90,12 @@ Higher order hyperoperations (from tetration and above) are _not_ associative, t
 
 Since tetration is not defined for non-integral heights, the domain of pentation `H5` and above is restricted to non-negative integer values.
 
+### Talks & Press
+
+This library was presented at DC's Hack && Tell:
+
+[http://thoppe.github.io/python-hyperoperators/HnT_pres.html#/](http://thoppe.github.io/python-hyperoperators/HnT_pres.html#/)
+
 # License
 
 This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
