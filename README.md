@@ -86,7 +86,7 @@ mpmath.cplot(f, verbose=True, points=100000)
 ### Bounded hyperoperators
 
 Sometimes, especially in the case of small complex numbers, you only care about numbers that stay bounded during the calculation.
-That is, you'd only like to keep the result of if there is some value z such that `H[n](a,b) < z`.
+That is, you'd only like to keep the result for some bound z such that `H[n](a,b) <= z`.
 The class `bounded_hyperop` does just that:
 
 ``` python
