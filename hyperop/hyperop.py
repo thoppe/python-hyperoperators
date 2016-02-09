@@ -36,7 +36,7 @@ class base_hyperop3(object):
 
 class hyperop(object):
 
-    def __new__(cls, n, primitive=False):
+    def __new__(cls, n, primitive=False, **kwargs):
         if n < 0 or int(n) != n:
             raise ValueError(_errmsg_invalid_hyperop_n.format(n))
 
@@ -123,3 +123,48 @@ class hyperop(object):
 
         if a != int(a):
             raise ValueError(_errmsg_non_integral.format(a))
+
+
+class bounded_hyperop(hyperop):
+
+    infinity = float("inf")
+
+    def __init__(self, n, bound=1000, **kwargs):
+        '''
+        Create a bounded hyperoperator of order n.
+
+        If n>=4, then if the intermediate result is larger than bound
+        the result will be returned as infinite.
+        '''
+        self.n = n
+        self.lower = bounded_hyperop(n - 1)
+        self.bound = bound
+        
+
+    def __call__(self, a, b):
+        '''
+        Evaluate and return expression H[n](a,b).
+        (a,b) must be non-negative for n>4.
+
+        If the intermediate result is larger than the inital bound
+        infinity will be returned.
+        '''
+        self._check_value(a, b)
+
+        vals = self._repeat(a,b)
+
+        try:
+            x = self.lower(vals.next(), vals.next())
+        except StopIteration:
+            x = a
+        
+        if abs(x)>self.bound:
+            return self.infinity
+        
+        for y in vals:
+            x = self.lower(y, x)
+            
+            if abs(x)>self.bound:
+                return self.infinity
+
+        return x
