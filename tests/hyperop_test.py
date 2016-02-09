@@ -2,7 +2,7 @@ import unittest
 import itertools
 import math
 import operator
-from hyperop import hyperop
+from hyperop import hyperop, bounded_hyperop
 
 testing_values = range(1, 15)
 
@@ -97,6 +97,33 @@ class ValidRanges(unittest.TestCase):
     def test_non_negative_n(self):
         with self.assertRaises(ValueError):
             hyperop(-1)
+
+
+class BoundedHyperop(unittest.TestCase):
+
+    def test_integer_bounds(self):
+        H = bounded_hyperop(4, bound=1000)
+        assert H(2, 5) == H.infinity
+
+    def test_complex_bounds(self):
+        H = bounded_hyperop(4, bound=1000)
+        assert H(5.0, 5) == H.infinity
+
+    def test_coorespondance(self):
+        '''
+        Check if the bounded hyperop matches with the regular
+        version for small values of a,b.
+        '''
+
+        bound = hyperop(4)(3, 3)
+
+        vals = range(1, 4)
+        for N in range(0, 5):
+            H = hyperop(N, primitive=True)
+            Hb = bounded_hyperop(N, bound=bound, primitive=True)
+
+            for a, b in itertools.product(vals, repeat=2):
+                assert(H(a, b) == Hb(a, b))
 
 if __name__ == '__main__':
     unittest.main()
