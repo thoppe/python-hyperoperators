@@ -1,10 +1,12 @@
-import os
 from setuptools import setup
+
+# Load the version string
+exec(open('hyperop/_version.py').read())
 
 setup(
     name="hyperop",
     packages=['hyperop'],
-    version="1.0",
+    version=__version__,
     download_url = 'https://github.com/thoppe/python-hyperoperators/tarball/1.0',
     author="Travis Hoppe",
     author_email="travis.hoppe+hyperop@gmail.com",
