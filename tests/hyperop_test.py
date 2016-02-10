@@ -123,7 +123,41 @@ class BoundedHyperop(unittest.TestCase):
             Hb = bounded_hyperop(N, bound=bound, primitive=True)
 
             for a, b in itertools.product(vals, repeat=2):
-                assert(H(a, b) == Hb(a, b))
+                assert H(a, b) == Hb(a, b)
+
+
+class SpecialCases(unittest.TestCase):
+
+    def test_special_case_b0(self):
+
+        H0 = dict([(n, hyperop(n)) for n in range(15)])
+        Hb = dict([(n, bounded_hyperop(n)) for n in range(15)])
+
+        for H in [H0, Hb]:
+
+            for a in testing_values:
+                assert H[0](a, 0) == 1
+                assert H[1](a, 0) == a
+                assert H[2](a, 0) == 0
+
+                for n in range(3, 15):
+                    assert H[n](a, 0) == 1
+
+    def test_special_case_a0(self):
+
+        H0 = dict([(n, hyperop(n)) for n in range(15)])
+        Hb = dict([(n, bounded_hyperop(n)) for n in range(15)])
+
+        for H in [H0, Hb]:
+
+            for b in testing_values:
+                assert H[0](0, b) == b + 1
+                assert H[1](0, b) == b
+                assert H[2](0, b) == 0
+                assert H[3](0, b) == 0
+
+                for n in range(4, 15):
+                    assert H[n](0, b) == (b % 2 == 0)
 
 if __name__ == '__main__':
     unittest.main()

@@ -101,7 +101,10 @@ class hyperop(object):
         Evaluate and return expression H[n](a,b).
         (a,b) must be non-negative for n>4.
         '''
-        self._check_value(a, b)
+        check = self._check_value(a, b)
+        if check is not None:
+            return check
+
         # Apply foldr
         return reduce(lambda x, y: self.lower(y, x), self._repeat(a, b))
 
@@ -110,19 +113,26 @@ class hyperop(object):
         H[n>5](a,b) both a,b must be integers.
         H[n=4](a,b) b must be and integer.
         check input values and raise Exception if they don't pass.
-        '''
 
+        If H[n](a,b) is a special case return that value instead of None
+        '''
         if self.n <= 3:
-            return True
+            return None
+
+        # Special case for n>=4 and b=0
+        if b == 0:
+            return 1
 
         if b != int(b):
             raise ValueError(_errmsg_non_integral.format(b))
 
         if self.n <= 4:
-            return True
+            return None
 
         if a != int(a):
             raise ValueError(_errmsg_non_integral.format(a))
+
+        return None
 
 
 class bounded_hyperop(hyperop):
@@ -148,7 +158,9 @@ class bounded_hyperop(hyperop):
         If the intermediate result is larger than the inital bound
         infinity will be returned.
         '''
-        self._check_value(a, b)
+        check = self._check_value(a, b)
+        if check is not None:
+            return check
 
         vals = self._repeat(a, b)
 
