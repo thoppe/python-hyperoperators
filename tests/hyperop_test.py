@@ -12,6 +12,33 @@ def check_range(fA, fB):
         assert fA(x, y) == fB(x, y)
 
 
+class SpecialCases(unittest.TestCase):
+
+    def test_special_case_b0(self):
+
+        H = dict([(n,hyperop(n)) for n in range(15)])
+
+        for a in testing_values:
+            assert(H[0](a,0) == 1)
+            assert(H[1](a,0) == a)
+            assert(H[2](a,0) == 0)
+            for n in range(3, 15):
+                assert(H[n](a,0) == 1)
+
+    def test_special_case_a0(self):
+
+        H = dict([(n,hyperop(n)) for n in range(15)])
+
+        for b in testing_values:
+            assert(H[0](0,b) == b+1)
+            assert(H[1](0,b) == b)
+            assert(H[2](0,b) == 0)
+            assert(H[3](0,b) == 0)
+
+            for n in range(4, 15):
+                assert(H[n](0,b) == (b%2==0))
+
+
 class PrimitiveSmallValues(unittest.TestCase):
 
     def test_primitive_H1(self):
