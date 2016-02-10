@@ -104,7 +104,7 @@ class hyperop(object):
         check = self._check_value(a, b)
         if check is not None:
             return check
-        
+
         # Apply foldr
         return reduce(lambda x, y: self.lower(y, x), self._repeat(a, b))
 
@@ -120,7 +120,7 @@ class hyperop(object):
             return None
 
         # Special case for n>=4 and b=0
-        if b==0:
+        if b == 0:
             return 1
 
         if b != int(b):
@@ -160,8 +160,6 @@ class bounded_hyperop(hyperop):
         '''
         check = self._check_value(a, b)
         if check is not None:
-            print check
-            exit()
             return check
 
         vals = self._repeat(a, b)
