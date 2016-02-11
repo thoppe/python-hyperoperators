@@ -7,7 +7,7 @@ setup(
     name="hyperop",
     packages=['hyperop'],
     version=__version__,
-    download_url='https://github.com/thoppe/python-hyperoperators/tarball/1.0',
+    download_url='https://github.com/thoppe/python-hyperoperators/tarball/1.1',
     author="Travis Hoppe",
     author_email="travis.hoppe+hyperop@gmail.com",
     description=(
