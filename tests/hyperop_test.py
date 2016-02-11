@@ -2,6 +2,7 @@ import unittest
 import itertools
 import math
 import operator
+import hyperop as hyperop_lib
 from hyperop import hyperop, bounded_hyperop
 
 testing_values = range(1, 15)
@@ -158,6 +159,12 @@ class SpecialCases(unittest.TestCase):
 
                 for n in range(4, 15):
                     assert H[n](0, b) == (b % 2 == 0)
+
+
+class CheckMeta(unittest.TestCase):
+
+    def test_VersionNumberExists(self):
+        hyperop_lib.__version__
 
 if __name__ == '__main__':
     unittest.main()
