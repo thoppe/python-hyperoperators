@@ -83,12 +83,24 @@ mpmath.cplot(f, verbose=True, points=100000)
 
 ![Complex tetration plot](figures/tetration_example.png)
 
+### Bounded hyperoperators
+
+Sometimes, especially in the case of small complex numbers, you only care about numbers that stay bounded during the calculation.
+That is, you'd only like to keep the result for some bound z such that `H[n](a,b) <= z`.
+The class `bounded_hyperop` does just that:
+
+``` python
+from hyperop import bounded_hyperop
+Hb = bounded_hyperop(4, bound=1000)
+print Hb(2,3), Hb(2,4)
+# >> 16 inf
+``` 
  
 ### Caveats
   
 Higher order hyperoperations (from tetration and above) are _not_ associative, thus tetration `H4(2,4) = 2^(2^(2^(2))) = 65536` is not `H4(2,4) != 2^(2*2*2) = 256`.
 
-Since tetration is not defined for non-integral heights, the domain of pentation `H5` and above is restricted to non-negative integer values.
+Since tetration is not defined for non-integral heights, the second argument of tetration and both arguments of pentation and above are restricted to non-negative integer values.
 
 ### Talks & Press
 
