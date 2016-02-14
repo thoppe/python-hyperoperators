@@ -35,7 +35,7 @@ from hyperop import hyperop
 
 H1 = hyperop(1)
 print H1(2,3), H1(3,2), H1(5,4)
-# >> 5, 5, 8
+# >> 5, 5, 9
 
 H3 = hyperop(3)
 print H3(2,3), H3(3,2), H3(5,4)
