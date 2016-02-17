@@ -64,9 +64,9 @@ Calculate the incomprehensibly large, but finite [Graham's number](https://en.wi
 ``` python
 def GrahamsNumber():
     # This may take awhile...
-    g = 6
+    g = 4
     for n in range(1,64+1):
-        g = hyperop(g)(3,3)
+        g = hyperop(g+2)(3,3)
     return g
 ```
   
