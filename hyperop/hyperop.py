@@ -18,20 +18,29 @@ class base_hyperop0(object):
 
 class base_hyperop1(object):
 
-    def __call__(self, a, b):
-        return a + b
+    def __call__(self, a, b, customFunction):
+        if not customFunction:
+            return a + b
+        else:
+            return customFunction(a,b)
 
 
 class base_hyperop2(object):
 
     def __call__(self, a, b):
-        return a * b
+        if not customFunction:
+            return a * b
+        else:
+            return customFunction(a,b)
 
 
 class base_hyperop3(object):
 
     def __call__(self, a, b):
-        return a ** b
+        if not customFunction:
+            return a ** b
+        else:
+            return customFunction(a,b)
 
 
 class hyperop(object):
@@ -41,19 +50,19 @@ class hyperop(object):
             raise ValueError(_errmsg_invalid_hyperop_n.format(n))
 
         if n == 0:
-            return base_hyperop0()
+            return base_hyperop0(customFunction)
 
         if not primitive:
             if n == 1:
-                return base_hyperop1()
+                return base_hyperop1(customFunction)
             if n == 2:
-                return base_hyperop2()
+                return base_hyperop2(customFunction)
             if n == 3:
-                return base_hyperop3()
+                return base_hyperop3(customFunction)
 
         return object.__new__(cls)
 
-    def __init__(self, n, primitive=False):
+    def __init__(self, n, customFunction=None, primitive=False):
         '''
         Create a hyperoperator of order n.
 
@@ -75,7 +84,12 @@ class hyperop(object):
         >> 32
         '''
         self.n = n
-        self.lower = hyperop(n - 1)
+        if not customFunction:
+            self.lower = hyperop(n - 1)
+        else:
+            assert hasattr(customFunction, '__call__'), "Object not a callable/function"
+            self.lower = hyperop(n-1, customFunction=customFunction)
+
 
     def _repeat(self, a, b):
         '''
