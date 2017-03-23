@@ -18,7 +18,7 @@ class base_hyperop0(object):
 
 class base_hyperop1(object):
 
-    def __call__(self, a, b, customFunction):
+    def __call__(self, a, b, customFunction=None):
         if not customFunction:
             return a + b
         else:
@@ -27,7 +27,7 @@ class base_hyperop1(object):
 
 class base_hyperop2(object):
 
-    def __call__(self, a, b):
+    def __call__(self, a, b, customFunction=None):
         if not customFunction:
             return a * b
         else:
@@ -36,7 +36,7 @@ class base_hyperop2(object):
 
 class base_hyperop3(object):
 
-    def __call__(self, a, b):
+    def __call__(self, a, b, customFunction=None):
         if not customFunction:
             return a ** b
         else:
@@ -50,15 +50,15 @@ class hyperop(object):
             raise ValueError(_errmsg_invalid_hyperop_n.format(n))
 
         if n == 0:
-            return base_hyperop0(customFunction)
+            return base_hyperop0()
 
         if not primitive:
             if n == 1:
-                return base_hyperop1(customFunction)
+                return base_hyperop1(**kwargs)
             if n == 2:
-                return base_hyperop2(customFunction)
+                return base_hyperop2(**kwargs)
             if n == 3:
-                return base_hyperop3(customFunction)
+                return base_hyperop3(**kwargs)
 
         return object.__new__(cls)
 
