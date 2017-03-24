@@ -104,9 +104,11 @@ Since tetration is not defined for non-integral heights, the second argument of 
 
 ### Talks & Press
 
-This library was first presented at DC's Hack && Tell (Feb. 2016).
-
-[http://thoppe.github.io/python-hyperoperators/HnT_pres.html](http://thoppe.github.io/python-hyperoperators/HnT_pres.html#/)
+![python weekly](figures/python_weekly.png)
+    
+Hyperop was featured in issue #231 of [Python Weekly](http://us2.campaign-archive2.com/?u=e2e180baf855ac797ef407fc7&id=39cb63fa64)!
+    
+This library was first presented at DC's Hack && Tell (Feb. 2016). [Talk link.](http://thoppe.github.io/python-hyperoperators/HnT_pres.html#/)
 
 # License
 
