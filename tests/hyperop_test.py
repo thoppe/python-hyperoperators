@@ -166,5 +166,6 @@ class CheckMeta(unittest.TestCase):
     def test_VersionNumberExists(self):
         hyperop_lib.__version__
 
+
 if __name__ == '__main__':
     unittest.main()

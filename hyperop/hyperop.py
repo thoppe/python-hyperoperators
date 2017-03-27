@@ -22,7 +22,7 @@ class base_hyperop1(object):
         if not customFunction:
             return a + b
         else:
-            return customFunction(a,b)
+            return customFunction(a, b)
 
 
 class base_hyperop2(object):
@@ -31,7 +31,7 @@ class base_hyperop2(object):
         if not customFunction:
             return a * b
         else:
-            return customFunction(a,b)
+            return customFunction(a, b)
 
 
 class base_hyperop3(object):
@@ -40,7 +40,7 @@ class base_hyperop3(object):
         if not customFunction:
             return a ** b
         else:
-            return customFunction(a,b)
+            return customFunction(a, b)
 
 
 class hyperop(object):
@@ -87,9 +87,9 @@ class hyperop(object):
         if not customFunction:
             self.lower = hyperop(n - 1)
         else:
-            assert hasattr(customFunction, '__call__'), "Object not a callable/function"
-            self.lower = hyperop(n-1, customFunction=customFunction)
-
+            assert hasattr(
+                customFunction, '__call__'), "Object not a callable/function"
+            self.lower = hyperop(n - 1, customFunction=customFunction)
 
     def _repeat(self, a, b):
         '''
