@@ -34,19 +34,19 @@ To install the latest version use:
 from hyperop import hyperop
 
 H1 = hyperop(1)
-print H1(2,3), H1(3,2), H1(5,4)
+print(H1(2,3), H1(3,2), H1(5,4))
 # >> 5, 5, 9
 
 H3 = hyperop(3)
-print H3(2,3), H3(3,2), H3(5,4)
+print(H3(2,3), H3(3,2), H3(5,4))
 # >> 8, 9, 625
 
 from math import log
 H = hyperop(4)
-print H(2,5)
+print(H(2,5))
 >>> 200352993040684646497....45587895905719156736
 
-print log(log(log(log(H(2,5),2.0),2.0),2.0),2.0) == 2
+print(log(log(log(log(H(2,5),2.0),2.0),2.0),2.0) == 2)
 >>> True  
 ```
   
@@ -54,7 +54,7 @@ Approximate infinite tetration. Show that sqrt(2)^sqrt(2)^... where the tower co
 
 ``` python
 H4 = hyperop(4)
-print H4(2**0.5, 200)
+print(H4(2**0.5, 200))
 # >> 2.0
 ```
   
@@ -92,7 +92,7 @@ The class `bounded_hyperop` does just that:
 ``` python
 from hyperop import bounded_hyperop
 Hb = bounded_hyperop(4, bound=1000)
-print Hb(2,3), Hb(2,4)
+print(Hb(2,3), Hb(2,4))
 # >> 16 inf
 ``` 
  
