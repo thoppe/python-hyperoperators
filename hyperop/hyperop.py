@@ -1,6 +1,6 @@
 from functools import reduce
 
-_errmsg_non_integral = "{} is not integral, required for hyperop n>4"
+_errmsg_non_integral = "{} is not an integer, required for hyperop n≥4"
 _errmsg_invalid_hyperop_n = "hyperoperators must be integers n>=0, " "created with n={}"
 
 # Define the base of the recursion, H0 the successor function
